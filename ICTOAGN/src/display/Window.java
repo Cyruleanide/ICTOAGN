@@ -21,6 +21,7 @@ public class Window {
 	//ArrayList<page> pages = new ArrayList<>();
 	
 	public Window() {
+		JPanel test = new JPanel();
 		frame = new JFrame("ICTOAGN Store");
 		
 		frame.setPreferredSize(new Dimension(1280, 960));
