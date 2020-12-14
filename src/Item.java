@@ -29,9 +29,15 @@ class Item{
         return des;
     }
 
+    public String toString(){
+        return getName();
+    }
+
     //returns item id
     public int getID(){
         return iD;
     }
+      
+
     
 }
