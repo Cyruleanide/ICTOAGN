@@ -51,6 +51,8 @@ public class Window {
 		department.setLayout(new FlowLayout(5));
 		department.add(new JLabel(new ImageIcon("res/chair.jpg")));
 		department.add(new JLabel(new ImageIcon("res/lamp.jpg")));
+		department.add(new JLabel(new ImageIcon("res/chair.jpg")));
+		department.add(new JLabel(new ImageIcon("res/lamp.jpg")));
 		center.add(department);
 		mainContainer.add(center, BorderLayout.CENTER);
 		
