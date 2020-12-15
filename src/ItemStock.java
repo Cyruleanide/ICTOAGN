@@ -5,11 +5,7 @@ public class ItemStock {
     //quantity in stock
     private int quantity;
 
-    //true if close to out of stock
-    private boolean stockLow;
 
-    //True if item is out of stock
-    private boolean OutOfStock;
 
     //holds items
     private Item[] stock;
