@@ -6,16 +6,14 @@ class Item{
     //description of item
     private String des; // may also change later
 
-    //item ID
-    private int iD;
-
+  
     //There may also be a method to get photos of item
 
-    public Item(String n, String p, String d, int i){
+    public Item(String n, String p, String d){
         name = n;
         prop = p;
         des = d;
-        iD = i;
+
     }
 
     //gets name of item
@@ -33,11 +31,7 @@ class Item{
         return getName();
     }
 
-    //returns item id
-    public int getID(){
-        return iD;
-    }
-      
+
 
     
 }
