@@ -19,7 +19,6 @@ public class Window {
 	
 	JPanel content = new JPanel();
 	index page = new index(this);
-	Product product = new Product(this);
 	//ArrayList<page> pages = new ArrayList<>();
 	
 	public Window() {
@@ -35,13 +34,12 @@ public class Window {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setResizable(false);
 		frame.setLocationRelativeTo(null);
-		frame.setResizable(false);
+		frame.setResizable(true);
 		
 		frame.getRootPane().setBorder(BorderFactory.createMatteBorder(4, 4, 4, 4, Color.GREEN));
 		
 		content.setLayout(cl);
 		content.add(page, "1");
-		content.add(product, "2");
 		
 		cl.show(content, "1");
 		
@@ -62,6 +60,11 @@ public class Window {
 			case 2: cl.show(content, "2");
 			break;
 		}
+	}
+	
+	public void switchNewPanel(JPanel panel, String name) {
+		content.add(panel, name);
+		cl.show(content, name);
 	}
 	
 }
