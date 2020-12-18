@@ -1,44 +1,62 @@
+import java.util.ArrayList;
+
 public class ItemStock {
     //NAme of Items in Stock
     private String Name;
 
-    //quantity in stock
-    private int quantity;
+    //department name
+    private String Dept;
 
-
+    //description
+    private String Des;
 
     //holds items
-    private Item[] stock;
+    private ArrayList<Item> stock = new ArrayList<Item>();
 
-    public ItemStock(String Name){
+    public ItemStock(String Name, String Des, String Dept){
         this.Name = Name;
+        this.Dept = Dept;
+        this.Des = Des;
+        createStock();
     }
     public String getName(){
         return Name;
     }
-    public int getQuantity(){
-        return quantity;
+    public String getDeptNam(){
+        return Dept;
     }
 
-    public void createStock(Item temp , int num){
-        stock =  new Item[num];
+    public String getDes(){
+        return Des;
+    }
+    public int getQuantity(){
+        return stock.size();
+    }
+
+    public void createStock()
+    {
+        int num = (int)(Math.random()*10)+0;
+        
         for(int i =0; i < num; i++){
-            stock[i] = temp;
+            stock.add(new Item(Name));
         }
-        quantity = num;
     }
 
     public boolean lowStock(){
-        if(stock.length <= 3 && stock.length != 0)
+        if(stock.size()<= 3 && stock.size() != 0)
         return true;
         else 
         return false;
     }
     public boolean outOfStock(){
-        if (stock.length ==0)
+        if (stock.size() ==0)
         return true;
         else 
         return false;
+    }
+
+    public String toString(){
+        return "Name: "+getName() +", Stock: " + getQuantity();
     }
 
     //testing purposes
