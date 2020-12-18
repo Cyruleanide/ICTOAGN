@@ -26,7 +26,7 @@ public class Window {
 		JPanel test = new JPanel();
 		cl = new CardLayout();
 		
-		frame = new JFrame("ICTOAGN Store");
+		frame = new JFrame("ICTOAGN");
 		
 		frame.setPreferredSize(new Dimension(1280, 960));
 		frame.setMaximumSize(new Dimension(1280, 960));
