@@ -14,39 +14,12 @@ import javax.swing.border.LineBorder;
 
 import display.Window;
 
-public class Product extends Container {
+public class Product extends Page {
 
-	public Product(int n, Window w) {
-		this.setLayout(new BorderLayout(8, 6));
+	public Product(Window w) {
+		super(w, "Product");
 		
-		JPanel topPanel = new JPanel();
-		JButton indexButton = new JButton("Home");
-		JButton pButton = new JButton("Product");
-		indexButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				w.setHome();
-			}
-		});
-		pButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				w.setProduct();
-			}
-		});
-		topPanel.setBorder(new LineBorder(Color.BLACK, 3));
-		topPanel.add(new JLabel("ICTOAGN"));
-		topPanel.add(indexButton);
-		topPanel.add(pButton);
-		this.add(topPanel, BorderLayout.NORTH);
 		
-		JPanel leftPanel = new JPanel();
-		leftPanel.setBorder(new LineBorder(Color.BLACK, 3));
-		leftPanel.add(new JLabel(new ImageIcon("res/chair.jpg")));
-		this.add(leftPanel, BorderLayout.WEST);
-		
-		JPanel centerPanel = new JPanel();
-		centerPanel.setBorder(new LineBorder(Color.BLACK, 3));
-		centerPanel.add(new JLabel("This is a chair please seit in it if you buy please aanfdjk thanksd."));
-		this.add(centerPanel, BorderLayout.CENTER);
 	}
 	
 }
