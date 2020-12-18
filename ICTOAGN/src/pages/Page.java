@@ -22,8 +22,9 @@ public class Page extends JPanel {
 //================================================================================================================
 		JPanel topPanel = new JPanel();
 		JLabel header = new JLabel("ICTOAGN - " + name);
-		JButton product = new JButton("Product");
 		JButton home = new JButton("Home");
+		JButton product = new JButton("Product");
+		JButton buy = new JButton("Buy");
 		
 		home.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
