@@ -13,7 +13,7 @@ public class Shop {
     private String[] tech= {"Macbook", "Windows Desktop", "Monitor", "Phones", "Keyboard and Mouse"};
     private String[] kitch = {"Oven", "Dishwasher","Sink","Refrigerator", "Freezer"};
     private String[] seas = {"Christmas Tree", "Flowers", "Ornament", "Christmas Lights", "Door Wreath"};
-
+    private UserCart user = new UserCart();
     
     private ArrayList<ItemStock> Stock = new ArrayList<ItemStock>();
     public Shop(){
@@ -69,6 +69,7 @@ public class Shop {
                 }
             }
     } 
+        
 }
    
     public String getDept(ItemStock temp){
