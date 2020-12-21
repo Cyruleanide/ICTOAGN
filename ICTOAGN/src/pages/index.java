@@ -4,6 +4,8 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -52,7 +54,7 @@ public class index extends Page {
 				sc.close();
 				Item tempItem = new Item(file.list()[j], tempDesc, "res/" + temp.getDepNam() + "/" + file.list()[j]);
 				ItemStock tempStock = new ItemStock(file.list()[j].substring(0, file.list()[j].length() - 4));
-				tempStock.createStock(tempItem, r.nextInt(100) + 1);
+				tempStock.createStock(tempItem, r.nextInt(11) + 1);
 				temp.addItem(tempStock);
 				System.out.println(file.list()[j].substring(0, file.list()[j].length() - 4));
 			} catch (FileNotFoundException e) {
@@ -74,6 +76,7 @@ public class index extends Page {
 			tempPanel.setLayout(new FlowLayout(5));
 			ArrayList<ItemStock> tempItems = temp.getDepart();
 			for(int j = 0; j < tempItems.size(); j++) {
+				ItemStock tempStock = tempItems.get(j);
 				tempPanel.add(new JLabel(new ImageIcon(tempItems.get(j).getStock()[0].getPath())));
 				JPanel tempBuy = new JPanel();
 				JButton buyButton = new JButton("Buy: " + tempItems.get(j).getName());
@@ -82,6 +85,22 @@ public class index extends Page {
 				tempBuy.add(quantity);
 				tempBuy.add(buyButton);
 				tempPanel.add(tempBuy);
+				
+				buyButton.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent arg0) {
+						Product product = new Product(w, temp.getDepNam(), tempStock);
+						w.switchNewPanel(product, temp.getDepNam() + " " + tempStock.getName());
+					}
+				});
+				
+				if(tempItems.get(j).lowStock()) {
+					tempBuy.add(new JLabel("Almost out!"));
+				}
+				
+				if(tempItems.get(j).outOfStock()) {
+					tempBuy.add(new JLabel("X SOLD OUT"));
+					buyButton.setEnabled(false);
+				}
 			}
 			departmentSection.add(tempLabel);
 			departmentSection.add(tempPanel);
@@ -90,12 +109,5 @@ public class index extends Page {
 		JScrollPane sPane = new JScrollPane(departmentSection);
 		this.add(sPane, BorderLayout.CENTER);
 	}
-	
-	/* private void addDept(String deptName, String stockName, Item item) {
-		Random r = new Random();
-		Department d = new Department(deptName);
-		ItemStock stock = new ItemStock(stockName);
-		stock.createStock(item, r.nextInt(101) + 1);
-	} */
 	
 }
