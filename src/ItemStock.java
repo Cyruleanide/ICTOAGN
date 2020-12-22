@@ -59,6 +59,15 @@ public class ItemStock {
         return "Name: "+getName() +", Stock: " + getQuantity();
     }
 
+    public Item removeIt(){
+        Item te = stock.get(0);
+        stock.remove(0);
+        return te;
+    }
+    public void addtoStock(Item temp){
+        stock.add(temp);
+    }
+
     //testing purposes
     public void seeStock(){
         System.out.println(getName()+":");

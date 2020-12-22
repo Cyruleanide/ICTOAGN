@@ -17,6 +17,7 @@ public class Shop {
     
     private ArrayList<ItemStock> Stock = new ArrayList<ItemStock>();
     public Shop(){
+        this.user = new UserCart();
         for(int i =0; i <DepNams.length; i++){
             if(i == 0){
                 for(String t : Food){
@@ -76,11 +77,41 @@ public class Shop {
         return temp.getDeptNam();
     }
 
+    public void addToCart(Item te){
+        user.addCart(te);
+        for(ItemStock i: Stock){
+            if(i.getName() == te.getName() && i.outOfStock() == false){
+                i.removeIt();
+            }
+        }
+    }
+
+    public void remoFroCart(Item temp){
+        
+        for(ItemStock i: Stock){
+            if(i.getName() == temp.getName()){
+                i.addtoStock(temp);
+            }
+        }
+    }
+
+    public void viewCart(){
+        user.checkCart();
+    }
 
     //test method(s)
     public void printStock(){
         for(ItemStock p : Stock){
             System.out.println(p.toString());
         }
+    }
+    public void getstocko(int i){
+        addToCart(Stock.get(2).removeIt());
+    }
+    public int getQu(){
+        return Stock.get(2).getQuantity();
+    }
+    public void getocart(){
+     //   System.out.println(user.checkCart());
     }
 }
